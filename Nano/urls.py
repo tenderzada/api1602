@@ -7,5 +7,5 @@ from . import views
 app_name = 'Nano'
 
 urlpatterns = [
-    path('index/', views.index, name='nano_index'),
+    path('', views.index, name='nano_index'),
 ]

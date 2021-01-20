@@ -19,5 +19,5 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-labs/', include('main.urls')),
-    path('nano/', include('Nano.urls', namespace='nano')),
+    path('', include('Nano.urls', namespace='nano')),
 ]
