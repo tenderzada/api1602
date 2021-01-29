@@ -15,9 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include 
+from django.conf import settings
+from django.conf.urls.static import static
+from Nano import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-labs/', include('main.urls')),
-    path('', include('Nano.urls', namespace='nano')),
+    path('nano/', include('Nano.urls', namespace='nano')),
+    path('',views.index,name='index')
 ]
+
+#添加这行
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
