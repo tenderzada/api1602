@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'main',
     'Nano',
-    'ckeditor'
+    'ckeditor',
+    'labs'
 ]
 
 MIDDLEWARE = [

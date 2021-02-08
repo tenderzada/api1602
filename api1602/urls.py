@@ -23,7 +23,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api-labs/', include('main.urls')),
     path('nano/', include('Nano.urls', namespace='nano')),
-    path('',views.index,name='index')
+    path('',views.index,name='index'),
+    # 2020.2.8 新增labs接口
+    path('labs/', include('labs.urls'))
 ]
 
 #添加这行
