@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+    <script src="../../static/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+</head>
+
+<body onresize="windowResized()">
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'nano:nano_index'%}">YNU-边缘智能Lab</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nano:nano_about'%}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nano:nano_project'%}">Project</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Porject
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
+            </div>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Blog
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+              <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+              <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+              <a class="dropdown-item" href="blog-post.html">Blog Post</a>
+            </div>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Other Pages
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+              可用于动态详情
+              <a class="dropdown-item" href="full-width.html">Full Width Page</a>
+              <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
+              <a class="dropdown-item" href="faq.html">FAQ</a>
+              <a class="dropdown-item" href="404.html">404</a>
+              <a class="dropdown-item" href="pricing.html">Pricing Table</a>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Object Detection Demo</h1>
+        <p class="lead">Tips: Front end and backend are separated.</p>
+        <p>Warning: some pictures taked by cell phone, need to rotated 90°. However, for simplictiy, this demo will not deal with this problem.</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <h5 class='title' id='tips'> 
+        
+      <div id="container">
+        <img src="../../static/images/demo.jpg" id="image" class="center">
+        <div id="text-container">
+          <p id="instruction" class="green-color">
+          <button class="btn btn-primary" onClick="clickUploader()">上传图片</button>
+    
+          <p id="warning" class="result-color"></p>
+          <p class="result-color">
+            在下方显示结果
+          </p>
+          <input name="imgFile" type="file" id="fileUploader" accept="image/*" onChange="handleFiles()">
+        </div>
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- <h1 class='title'>Object detection demo </h1>
+  <h1 class='title'>Front end and backend are separated.</h1> -->
+
+  <!-- Footer -->
+  <div>
+    <br><br><br>
+  </div>
+  <footer class="py-3 bg-light fixed-bottom">
+    <div class="container">
+        <p class="m-0 text-center text-dark">Copyright &copy; https://ccy.icu 2020</p>
+    </div>
+  </footer>
+  <script src="../../static/js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

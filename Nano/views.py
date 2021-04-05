@@ -7,6 +7,18 @@ import markdown
 from django.core.paginator import Paginator
 # Create your views here.
 
+#od
+from PIL import Image
+import numpy as np
+import base64
+import io
+import os
+import json
+from .tf_inference import load_model, inference
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+
+sess, detection_graph = load_model()
+
 def index(request):
     # return HttpResponse("hello world!")
     # context = {}
@@ -37,3 +49,41 @@ def new_detail(request, id):
         ])
     context = {'new':new}
     return render(request,'nano/detail.html',context)
+
+def object_detection(request):
+    return render(request, 'nano/object_detection.html')
+
+def main_interface(request):
+    if request.method == 'POST':
+        print("yes")
+        # response = request.POST.get('image')
+        response = json.loads(request.body)
+        # print(response)
+        # response = request.get_json()
+        data_str = response['image']
+        point = data_str.find(',')
+        base64_str = data_str[point:]  # remove unused part like this: "data:image/jpeg;base64,"
+
+        image = base64.b64decode(base64_str)       
+        img = Image.open(io.BytesIO(image))
+
+        if(img.mode!='RGB'):
+            img = img.convert("RGB")
+        
+        # convert to numpy array.
+        img_arr = np.array(img)
+
+        # do object detection in inference function.
+        results = inference(sess, detection_graph, img_arr, conf_thresh=0.5)
+        print(results)
+        print(type(results))
+        return HttpResponse(json.dumps(results))
+        # return JsonResponse(results)
+    else:
+        print("error")
+
+def about(request):
+    return render(request, 'nano/about.html')
+
+def project(request):
+    return render(request, 'nano/portfolio-1-col.html')

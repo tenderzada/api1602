@@ -1,122 +1,297 @@
-<!-- extends表明此页面继承自 base.html 文件 -->
-{% extends "base.html" %}
 {% load static %}
+<!DOCTYPE html>
+<html lang="en">
 
-<!-- 写入 base.html 中定义的 title -->
-{% block title %}
-    首页
-{% endblock title %}
+<head>
 
-<!-- 写入 base.html 中定义的 content -->
-{% block content %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-<!-- 轮播图 -->
-<div class="">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-          <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://static2.extremevision.com.cn/lion2.0/images/about/about_me.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h4>关于智能边缘Lab</h4>
-              <p>2018年建立「AI视觉算法平台」，定位在基建、工具与分发，向开发者提供工程化服务。目前平台已积累视觉算法80多种。已为10余个行业、近50家政企提供AI服务。</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://static2.extremevision.com.cn/lion2.0/images/about/about_me.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h4>关于智能边缘Lab</h4>
-                <p>2018年建立「AI视觉算法平台」，定位在基建、工具与分发，向开发者提供工程化服务。目前平台已积累视觉算法80多种。已为10余个行业、近50家政企提供AI服务。</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://static2.extremevision.com.cn/lion2.0/images/about/about_me.png" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h4>关于智能边缘Lab</h4>
-                <p>2018年建立「AI视觉算法平台」，定位在基建、工具与分发，向开发者提供工程化服务。目前平台已积累视觉算法80多种。已为10余个行业、近50家政企提供AI服务。</p>
-            </div>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-</div>
-<div class="container">
-    <h3 style="font-size: 30px;margin-top: 60px; margin-bottom:60px;text-align: center;">算法演示</h3>
-    <div class="row mt-2">
-      {% for new in news %}
-        <div class="col-4 mb-4">
-            <div class="card" style="width: 18rem;">
-                <!-- <img src="https://extremevision.com.cn/img/anquanmao.jpg" class="card-img-top" alt="..."> -->
-                <!-- 标题图 -->
-                <img src="{{ new.avator.url }}"  class="card-img-top" alt="avatar" style="height:150px;">
-                <div class="card-body">
-                  <p class="card-text">{{new.title}} </p>
-                  <a href="{% url 'nano:new_detail' new.id %} " class="card-link">Card link</a>
-                </div>
-            </div>
-        </div>
-      {% endfor %}
-        <!-- <div class="col-4 mb-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://extremevision.com.cn/img/anquanmao.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">植物病虫害检测.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-4 mb-4">
-            <div class="card" style="width: 18rem;">
-                <img src="https://extremevision.com.cn/img/anquanmao.jpg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <p class="card-text">裂缝检测.</p>
-                </div>
-            </div>
-        </div> -->
-    </div>
-</div>
-<div style="width: 100%;background-size: cover; background-image: url('https://static2.extremevision.com.cn/images/training_platform/big_guys_share.png');">
-    <h3 style="font-size: 30px;margin-top: 60px; margin-bottom:60px;text-align: center;">团队成员</h3>
+  <title>Modern Business - Start Bootstrap Template</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/modern-business.css' %} " rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-        <div class="row mt-2">
-            <div class="col mb-4">
-                <div class="media">
-                    <img src="https://www.cvmart.net/imgs/photo1.png" class="mr-3" alt="...">
-                    <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+      <a class="navbar-brand" href="{% url 'nano:nano_index'%}">YNU-边缘智能Lab</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nano:nano_about'%}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nano:nano_project'%}">Project</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="services.html">Services</a>
+          </li> -->
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact</a>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Porject
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
+              <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
+              <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
             </div>
-            <div class="col mb-4">
-                <div class="media">
-                    <img src="https://www.cvmart.net/imgs/photo1.png" class="mr-3" alt="...">
-                    <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Blog
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
+              <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
+              <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
+              <a class="dropdown-item" href="blog-post.html">Blog Post</a>
             </div>
-            <div class="col mb-4">
-                <div class="media">
-                    <img src="https://www.cvmart.net/imgs/photo1.png" class="mr-3" alt="...">
-                    <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                </div>
+          </li> -->
+          <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Other Pages
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
+              可用于动态详情
+              <a class="dropdown-item" href="full-width.html">Full Width Page</a>
+              <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
+              <a class="dropdown-item" href="faq.html">FAQ</a>
+              <a class="dropdown-item" href="404.html">404</a>
+              <a class="dropdown-item" href="pricing.html">Pricing Table</a>
             </div>
-        </div>
+          </li> -->
+        </ul>
+      </div>
     </div>
-</div>
-{% endblock content %}
+  </nav>
+
+  <header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <!-- Slide One - Set the background image for this slide in the line below -->
+        <!-- <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')"> -->
+        <div class="carousel-item active" style="background-image: url('../../static/images/index-bg1.png')">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h3>First Slide</h3>
+            <p>This is a description for the first slide.</p> -->
+          </div>
+        </div>
+        <!-- Slide Two - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('../../static/images/index-bg2.png')">
+          <div class="carousel-caption d-none d-md-block">
+            <p>第五届“互联网+”全国大学生创新创业大赛参赛项目</p>
+            <p>获云南省金奖，国赛铜奖。</p>
+          </div>
+        </div>
+        <!-- Slide Three - Set the background image for this slide in the line below -->
+        <div class="carousel-item" style="background-image: url('https://oss.sensetime.com/20200622/845be87a5b3df8bae5308d3044fcead4.jpg')">
+          <div class="carousel-caption d-none d-md-block">
+            <!-- <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p> -->
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <h2 class="my-4">团队动态</h2>
+
+    <!-- Marketing Icons Section -->
+    <div class="row">
+      {% for new in news %}
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">{{new.title}}</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="{% url 'nano:new_detail' new.id %}" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-4">
+        <div class="card h-100">
+          <h4 class="card-header">Card Title</h4>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Learn More</a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Portfolio Section -->
+    <h2>项目展示</h2>
+
+    <div class="row">
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="{% url 'nano:object_detection'%}"><img class="card-img-top" src="../../static/images/index-project1.png" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="{% url 'nano:object_detection'%}">目标检测Demo</a>
+            </h4>
+            <p class="card-text">基于mobilenet实现简单目标检测，模型部署在Django后端.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Two</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Three</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Four</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Five</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="#">Project Six</a>
+            </h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <!-- /.row -->
+
+    <!-- Features Section -->
+    <div class="row">
+      <div class="col-lg-6">
+        <h2>荣誉奖项</h2>
+        <p>团队依托云南大学软件学院，近年获奖：</p>
+        <ul>
+          <li>
+            <strong>第五届“互联网+”全国大学生创新创业大赛国赛铜奖</strong>
+          </li>
+          <li>xxx</li>
+          <li>xxxx</li>
+          <li>xxx</li>
+          <li>xxx</li>
+        </ul>
+        <p>云南大学国家示范性软件学院是经教育部和发改委联合批准，于2002年设立的全国首批35所国家示范性软件学院之一。软件学院参与建设了学校“计算机科学与技术”博士学位授权，拥有“软件工程”、“网络空间安全”2个学术型硕士学位授权和“软件工程”专业硕士学位授权。</p>
+      </div>
+      <div class="col-lg-6">
+        <!-- <img class="img-fluid rounded" src="http://placehold.it/700x450" alt=""> -->
+        <img class="img-fluid rounded" src="../../static/images/index-bg3.png" alt="">
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <hr>
+
+    <!-- Call to Action Section -->
+    <div class="row mb-4">
+      <div class="col-md-8">
+        <p>学院开设“软件工程”、“数字媒体技术”2个国家和省级卓越工程师培养计划本科专业，合并原国家级特色及卓越工程师培养计划专业“网络工程”与云南省卓越工程师培养计划专业“信息安全”开设了“网络空间安全”本科专业。</p>
+      </div>
+      <div class="col-md-4">
+        <a class="btn btn-lg btn-secondary btn-block" href="http://www.sei.ynu.edu.cn/index.htm">学院官网</a>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; https://ccy.icu 2021</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+</body>
+
+</html>
