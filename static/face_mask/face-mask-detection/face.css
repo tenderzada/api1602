@@ -1,0 +1,39 @@
+body {
+  padding-top: 0rem;
+  text-align: center
+} 
+#h_title {
+  margin-top: 10px;
+}
+
+/* .starter-template {
+  padding:0 rem;
+  text-align: center;
+} */
+
+.img-responsive { 
+  width:90px;
+  height:90px;
+} 
+
+@media(max-width:800px){
+  .btn-font {
+    font-size: 0.450rem;
+  }
+  .ctl-font {
+    font-size: 0.450rem;
+  }
+}
+
+@media(min-width:800px){
+  .btn-font {
+    font-size: 1rem;
+  }
+  .ctl-font {
+    font-size: 1rem;
+  }
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+}

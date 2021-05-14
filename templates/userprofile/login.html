@@ -1,0 +1,157 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>AI-Edge</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/modern-business.css' %} " rel="stylesheet">
+
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+
+  <style>
+    body {
+    background-image: url('{% static 'images/bg3.jpg' %}');;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'nano:nano_index'%}">YNU-边缘智能Lab</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nano:nano_about'%}">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'nano:nano_project'%}">Project</a>
+          </li>
+
+          {% if user.is_authenticated %}
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:9004/d/wqc48EuGz/anomaly_alert?orgId=1&from=1620251763372&to=1620273363372&viewPanel=2">System</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ user.username }}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href='{% url "userprofile:logout" %}'>logout</a>
+                  </div>
+              </li>
+          {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'userprofile:login' %}">login</a>
+              </li>                    
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </nav> -->
+  
+  <div class="container"> 
+    <div class="row">
+      &nbsp
+    </div>
+    <div class="row">
+      &nbsp
+    </div>
+    <div class="row">
+      &nbsp
+    </div>
+    <div class="row">
+      &nbsp
+    </div>
+    <div class="row">
+      &nbsp
+    </div>
+    <div class="row">
+      &nbsp
+    </div>
+    <div class="row">
+      &nbsp
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 mb-4">
+        <form method="post" action="." id="login_frame">
+          <h4>输电线缺陷检测告警系统</h3>
+          {% csrf_token %}
+          <!-- 账号 -->
+          <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control form-control-lg" id="username" placeholder="Full Name" name="username">
+            </div>
+          </div>
+          <!-- 密码 -->
+          <div class="form-group row">
+            <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Password</label>
+            <div class="col-sm-10">
+              <input type="password" class="form-control form-control-lg" id="password" placeholder="Password" name="password"> 
+            </div>
+          </div>
+          <!-- 提交按钮 -->
+          <button type="submit" class="btn btn-outline-primary" id="sendMessageButton">登录</button>
+        </form>
+      </div>
+    </div>
+    
+
+    
+
+    <!-- <div class="row">
+      <div class="col-lg-4 mb-4">
+        <h3> You Can Login Here </h3>
+        <form method="post" action=".">
+          {% csrf_token %}
+          
+          <div class="form-group">
+              <label for="username">full name</label>
+              <input type="text" class="form-control" id="username" name="username">
+          </div>
+          
+          <div class="form-group">
+              <label for="password">password</label>
+              <input type="password" class="form-control" id="password" name="password">
+          </div>
+          
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">登录</button>
+        </form>
+      </div>
+    </div> -->
+
+  </div>
+
+  <!-- Footer -->
+  <!-- <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+    </div>
+  </footer> -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+</body>
+
+</html>

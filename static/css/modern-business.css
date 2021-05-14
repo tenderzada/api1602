@@ -8,7 +8,8 @@ body {
 }
 
 .carousel-item {
-  height: 65vh;
+  /* height: 65vh; */
+  height: 400px;
   min-height: 300px;
   background: no-repeat center center scroll;
   -webkit-background-size: cover;

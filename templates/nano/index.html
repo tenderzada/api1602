@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Modern Business - Start Bootstrap Template</title>
+  <title>AI-Edge</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
@@ -36,6 +36,26 @@
           <li class="nav-item">
             <a class="nav-link" href="{% url 'nano:nano_project'%}">Project</a>
           </li>
+
+          {% if user.is_authenticated %}
+              <!-- 如果用户已经登录，则显示用户名下拉框 -->
+              <li class="nav-item">
+                <a class="nav-link" href="http://localhost:9004/d/wqc48EuGz/anomaly_alert?orgId=1&from=1620251763372&to=1620273363372&viewPanel=2">System</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    {{ user.username }}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href='{% url "userprofile:logout" %}'>logout</a>
+                  </div>
+              </li>
+          <!-- 如果用户未登录，则显示 “登录” -->
+          {% else %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'userprofile:login' %}">login</a>
+              </li>                    
+          {% endif %}
           <!-- <li class="nav-item">
             <a class="nav-link" href="services.html">Services</a>
           </li> -->
@@ -83,7 +103,7 @@
   </nav>
 
   <header>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="height:auto">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -128,10 +148,10 @@
   <!-- Page Content -->
   <div class="container">
 
-    <h2 class="my-4">团队动态</h2>
+    <!-- <h2 class="my-4">团队动态</h2> -->
 
     <!-- Marketing Icons Section -->
-    <div class="row">
+    <!-- <div class="row">
       {% for new in news %}
       <div class="col-lg-4 mb-4">
         <div class="card h-100">
@@ -144,7 +164,7 @@
           </div>
         </div>
       </div>
-      {% endfor %}
+      {% endfor %} -->
       <!-- <div class="col-lg-4 mb-4">
         <div class="card h-100">
           <h4 class="card-header">Card Title</h4>
@@ -167,7 +187,7 @@
           </div>
         </div>
       </div> -->
-    </div>
+    <!-- </div> -->
     <!-- /.row -->
 
     <!-- Portfolio Section -->
@@ -187,26 +207,38 @@
       </div>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="{% url 'nano:yolov5s'%}"><img class="card-img-top" src="{% static 'images/index-project2.png' %}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">Project Two</a>
+              <a href="{% url 'nano:yolov5s'%}">基于yolov5s的输电线缺陷检测实例</a>
             </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+            <p class="card-text">基于yolo实现简单目标检测,模型部署在后端.</p>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+          <a href="{% url 'nano:anomaly_detection'%}"><img class="card-img-top" src="{% static 'images/index-project3.png' %}" alt=""></a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="#">Project Three</a>
+              <a href="{% url 'nano:anomaly_detection'%}">输电线路缺陷检测（video)</a>
             </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+            <p class="card-text">无人机协助的特高压输电线路缺陷检测</p>
           </div>
         </div>
       </div>
+
+      <!-- <div class="col-lg-4 col-sm-6 portfolio-item">
+        <div class="card h-100">
+          <a href="{% url 'nano:yolov5s'%}"><img class="card-img-top" src="{% static 'images/index-project4.png' %}" alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title">
+              <a href="{% url 'nano:yolov5s'%}">基于yolov5s的目标检测实例</a>
+            </h4>
+            <p class="card-text">模型部署的Django后台.</p>
+          </div>
+        </div>
+      </div> -->
       <!-- <div class="col-lg-4 col-sm-6 portfolio-item">
         <div class="card h-100">
           <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>

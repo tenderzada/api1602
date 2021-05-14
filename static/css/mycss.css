@@ -1,6 +1,4 @@
-.title1{
-    font-size: 30px;
-    margin-bottom:60px;
-    text-align: center;
-    color:#000;
-}
+.carousel-inner > .item > img {
+    width:100%; /* Or try to use important */
+    height:auto;
+  }

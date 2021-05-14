@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>AI-Edge</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %} " rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'css/modern-business.css' %} " rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}"/>
+
+</head>
+
+<body>
+    <div id="login_frame">
+ 
+        <p id="image_logo"><img src="images/login/fly.png"></p>
+     
+        <form method="post" action=".">
+            {% csrf_token %}
+            <p><label class="label_input">用户名</label><input type="text" class="form-control" id="username" name="username"></p>
+            <p><label class="label_input">密码</label><input type="password" class="form-control" id="password" name="password"></p>
+     
+            <div id="login_control">
+                <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+            </div>
+        </form>
+    </div>
+  
+    <div class="container"> 
+        <div class="row">
+        <div class="col-lg-8 mb-4">
+            <h3> You Can Login Here </h3>
+            <form method="post" action=".">
+            {% csrf_token %}
+            <!-- 账号 -->
+            <div class="form-group">
+                <label for="username">full name</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <!-- 密码 -->
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <!-- 提交按钮 -->
+            <button type="submit" class="btn btn-primary" id="sendMessageButton">Submit</button>
+            </form>
+        </div>
+        </div>
+    </div>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="{% static 'vendor/jquery/jquery.min.js' %} "></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+
+</body>
+
+</html>

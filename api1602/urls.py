@@ -17,15 +17,16 @@ from django.contrib import admin
 from django.urls import path, include 
 from django.conf import settings
 from django.conf.urls.static import static
-from Nano import views
+# from Nano import views
+from userprofile import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api-labs/', include('main.urls')),
     path('nano/', include('Nano.urls', namespace='nano')),
-    path('',views.index,name='index'),
-    # 2020.2.8 新增labs接口
-    path('labs/', include('labs.urls'))
+    # path('',views.index,name='index'),
+    path('',views.user_login,name='user_login'),
+    # 用户管理
+    path('userprofile/', include('userprofile.urls', namespace='userprofile')),
 ]
 
 #添加这行
