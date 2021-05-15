@@ -17,6 +17,9 @@
   <!-- Custom styles for this template -->
   <link href="{% static 'css/modern-business.css' %} " rel="stylesheet">
 
+  <style>
+  </style>
+
 </head>
 
 <body>
@@ -24,79 +27,40 @@
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'nano:nano_index'%}">YNU-边缘智能Lab</a>
+      <a class="navbar-brand" href="{% url 'nano:nano_index'%}">YNU-智能边缘Lab</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'nano:nano_about'%}">About</a>
+            <a class="nav-link" href="{% url 'nano:nano_project'%}">算法管理</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'nano:nano_project'%}">Project</a>
+            <a class="nav-link" href="{% url 'nano:anomaly_detection'%}">实时视频</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:9004/d/wqc48EuGz/anomaly_alert?orgId=1&from=1620251763372&to=1620273363372&viewPanel=2">告警管理</a>
+          </li>
           {% if user.is_authenticated %}
               <!-- 如果用户已经登录，则显示用户名下拉框 -->
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link" href="http://localhost:9004/d/wqc48EuGz/anomaly_alert?orgId=1&from=1620251763372&to=1620273363372&viewPanel=2">System</a>
-              </li>
+              </li> -->
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     {{ user.username }}
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href='{% url "userprofile:logout" %}'>logout</a>
+                    <a class="dropdown-item" href='{% url "userprofile:logout" %}'>登出</a>
                   </div>
               </li>
           <!-- 如果用户未登录，则显示 “登录” -->
           {% else %}
               <li class="nav-item">
-                  <a class="nav-link" href="{% url 'userprofile:login' %}">login</a>
+                  <a class="nav-link" href="{% url 'userprofile:login' %}">登入</a>
               </li>                    
           {% endif %}
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="services.html">Services</a>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link" href="contact.html">Contact</a>
-          </li> -->
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPortfolio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Porject
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPortfolio">
-              <a class="dropdown-item" href="portfolio-1-col.html">1 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-2-col.html">2 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-3-col.html">3 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-4-col.html">4 Column Portfolio</a>
-              <a class="dropdown-item" href="portfolio-item.html">Single Portfolio Item</a>
-            </div>
-          </li> -->
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownBlog" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Blog
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownBlog">
-              <a class="dropdown-item" href="blog-home-1.html">Blog Home 1</a>
-              <a class="dropdown-item" href="blog-home-2.html">Blog Home 2</a>
-              <a class="dropdown-item" href="blog-post.html">Blog Post</a>
-            </div>
-          </li> -->
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownPages" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Other Pages
-            </a>
-            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownPages">
-              可用于动态详情
-              <a class="dropdown-item" href="full-width.html">Full Width Page</a>
-              <a class="dropdown-item" href="sidebar.html">Sidebar Page</a>
-              <a class="dropdown-item" href="faq.html">FAQ</a>
-              <a class="dropdown-item" href="404.html">404</a>
-              <a class="dropdown-item" href="pricing.html">Pricing Table</a>
-            </div>
-          </li> -->
         </ul>
       </div>
     </div>
@@ -113,26 +77,29 @@
         <!-- Slide One - Set the background image for this slide in the line below -->
         <!-- <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')"> -->
         <!-- <div class="carousel-item active" style="background-image: url('../../static/images/index-bg1.png')"> -->
-        <div class="carousel-item active" style="background-image: url('{% static 'images/index-bg1.png' %}')">
+        <div class="carousel-item active" style="background-image: url('{% static 'images/index-bg5.jpg' %}')">
           <div class="carousel-caption d-none d-md-block">
+            <p>无人机协助的特高压输电线路缺陷检测.</p>
+            <p></p>
             <!-- <h3>First Slide</h3>
             <p>This is a description for the first slide.</p> -->
           </div>
         </div>
         <!-- Slide Two - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('{% static 'images/index-bg2.png' %}')">
+        <!-- <div class="carousel-item" style="background-image: url('{% static 'images/index-bg1.png' %}')">
           <div class="carousel-caption d-none d-md-block">
             <p>第五届“互联网+”全国大学生创新创业大赛参赛项目</p>
             <p>获云南省金奖，国赛铜奖。</p>
           </div>
-        </div>
+        </div> -->
         <!-- Slide Three - Set the background image for this slide in the line below -->
-        <div class="carousel-item" style="background-image: url('https://oss.sensetime.com/20200622/845be87a5b3df8bae5308d3044fcead4.jpg')">
-          <div class="carousel-caption d-none d-md-block">
-            <!-- <h3>Third Slide</h3>
-            <p>This is a description for the third slide.</p> -->
+        <!-- <div class="carousel-item" style="background-image: url('https://oss.sensetime.com/20200622/845be87a5b3df8bae5308d3044fcead4.jpg')"> -->
+        <!-- <div class="carousel-item" style="background-image: url('{% static 'images/index-bg6.png' %}')">   -->
+          <!-- <div class="carousel-caption d-none d-md-block">
+            <h3>Third Slide</h3>
+            <p>This is a description for the third slide.</p>
           </div>
-        </div>
+        </div> -->
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -147,163 +114,37 @@
 
   <!-- Page Content -->
   <div class="container">
+    <!-- Page Heading/Breadcrumbs -->
+    <h1 class="mt-4 mb-3">输电线缺陷检测告警系统
+        <small>JetsonNano</small>
+    </h1>
 
-    <!-- <h2 class="my-4">团队动态</h2> -->
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a href="{% url 'nano:nano_index'%}">Home</a>
+    </li>
+    <li class="breadcrumb-item active">About</li>
+    </ol>
 
-    <!-- Marketing Icons Section -->
-    <!-- <div class="row">
-      {% for new in news %}
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">{{new.title}}</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="{% url 'nano:new_detail' new.id %}" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      {% endfor %} -->
-      <!-- <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 mb-4">
-        <div class="card h-100">
-          <h4 class="card-header">Card Title</h4>
-          <div class="card-body">
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-          </div>
-          <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
-          </div>
-        </div>
-      </div> -->
-    <!-- </div> -->
-    <!-- /.row -->
-
-    <!-- Portfolio Section -->
-    <h2>项目展示</h2>
-
+    <!-- Intro Content -->
     <div class="row">
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="{% url 'nano:object_detection'%}"><img class="card-img-top" src="{% static 'images/index-project1.png' %} " alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="{% url 'nano:object_detection'%}">目标检测Demo</a>
-            </h4>
-            <p class="card-text">基于mobilenet实现简单目标检测，模型部署在Django后端.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="{% url 'nano:yolov5s'%}"><img class="card-img-top" src="{% static 'images/index-project2.png' %}" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="{% url 'nano:yolov5s'%}">基于yolov5s的输电线缺陷检测实例</a>
-            </h4>
-            <p class="card-text">基于yolo实现简单目标检测,模型部署在后端.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="{% url 'nano:anomaly_detection'%}"><img class="card-img-top" src="{% static 'images/index-project3.png' %}" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="{% url 'nano:anomaly_detection'%}">输电线路缺陷检测（video)</a>
-            </h4>
-            <p class="card-text">无人机协助的特高压输电线路缺陷检测</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="{% url 'nano:yolov5s'%}"><img class="card-img-top" src="{% static 'images/index-project4.png' %}" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="{% url 'nano:yolov5s'%}">基于yolov5s的目标检测实例</a>
-            </h4>
-            <p class="card-text">模型部署的Django后台.</p>
-          </div>
-        </div>
-      </div> -->
-      <!-- <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Four</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Five</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-4 col-sm-6 portfolio-item">
-        <div class="card h-100">
-          <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-          <div class="card-body">
-            <h4 class="card-title">
-              <a href="#">Project Six</a>
-            </h4>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
-          </div>
-        </div>
-      </div> -->
+    <div class="col-lg-6">
+        <img class="img-fluid rounded mb-4" src="{% static 'images/index-bg8.png' %} " alt="">
     </div>
-    <!-- /.row -->
-
-    <!-- Features Section -->
-    <div class="row">
-      <div class="col-lg-6">
-        <h2>荣誉奖项</h2>
-        <p>团队依托云南大学软件学院，近年获奖：</p>
-        <ul>
-          <li>
-            <strong>第五届“互联网+”全国大学生创新创业大赛国赛铜奖</strong>
-          </li>
-          <li>xxx</li>
-          <li>xxxx</li>
-          <li>xxx</li>
-          <li>xxx</li>
-        </ul>
-        <p>云南大学国家示范性软件学院是经教育部和发改委联合批准，于2002年设立的全国首批35所国家示范性软件学院之一。软件学院参与建设了学校“计算机科学与技术”博士学位授权，拥有“软件工程”、“网络空间安全”2个学术型硕士学位授权和“软件工程”专业硕士学位授权。</p>
-      </div>
-      <div class="col-lg-6">
-        <!-- <img class="img-fluid rounded" src="http://placehold.it/700x450" alt=""> -->
-        <img class="img-fluid rounded" src="{% static 'images/index-bg3.png' %} " alt="">
-      </div>
+    <div class="col-lg-6">
+        <h2>简介</h2>
+        <p>近年来，由于无人机技术的发展和应用场景的多元化，利用无人机进行电力巡检成为热点研究对象，凭借无人机的移动性和便携性有望实现安全、高效、且智能的输电线巡检。        </p>
+        <p>本文的主要进行了两项工作，一、提出使用最新的Yolov5目标检测算法进行输电线缺陷检测，在未公开的输电线数据集自主训练Yolov5模型，将其部署在Jetson Nano中，搭载在无人机处进行测试，实现50毫秒/帧的检测速度和92%的准确率。二、设计并实现机载Jetson Nano与服务器交互的告警消息推送机制，进而开发输电线缺陷检测告警系统，系统配备直观的告警可视化界面，支持离线检测和在线检测。</p>
+        <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, consequuntur, modi mollitia corporis ipsa voluptate corrupti eum ratione ex ea praesentium quibusdam? Aut, in eum facere corrupti necessitatibus perspiciatis quis?</p> -->
     </div>
-    <!-- /.row -->
+    </div>
 
     <hr>
 
     <!-- Call to Action Section -->
     <div class="row mb-4">
       <div class="col-md-8">
-        <p>学院开设“软件工程”、“数字媒体技术”2个国家和省级卓越工程师培养计划本科专业，合并原国家级特色及卓越工程师培养计划专业“网络工程”与云南省卓越工程师培养计划专业“信息安全”开设了“网络空间安全”本科专业。</p>
+        <p>关键词：电力巡检，缺陷检测，Jetson Nano，无人机，Yolov5，智能系统</p>
       </div>
       <div class="col-md-4">
         <a class="btn btn-lg btn-secondary btn-block" href="http://www.sei.ynu.edu.cn/index.htm">学院官网</a>
