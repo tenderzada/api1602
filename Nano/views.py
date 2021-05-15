@@ -136,4 +136,4 @@ def alert_data(request):
         else:
             return HttpResponse("POST error")
     else:
-        pass
+        return HttpResponse("please use post")
